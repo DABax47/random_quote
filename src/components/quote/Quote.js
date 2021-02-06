@@ -1,8 +1,9 @@
 import React, { Fragment } from "react";
+import "./css/quote.css";
 
-const Quote = () => (
+const Quote = ({ quote, index }) => (
   <Fragment>
-    <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit. Atque porro</p>
+    <p>{quote[index]}</p>
   </Fragment>
 );
 

@@ -4,20 +4,25 @@ import Button from "./components/atom/button/Button";
 import Quote from "./components/quote/Quote";
 import axios from "axios";
 function App() {
-  const [quote, setQuote] = useState();
+  const [quoteData, setQuote] = useState();
   const [index, setIndex] = useState(0);
-  useEffect(async () => {
-    const data = await axios(
-      "https://baconipsum.com/api/?type=meat-and-filler"
-    );
-    setQuote(data.data);
+  const count = 50;
+  useEffect(() => {
+    const fetchData = async () => {
+      const d = await axios(
+        `"https://goquotes-api.herokuapp.com/api/v1/random?count=${count}`
+      );
+      setQuote(d.data.quotes);
+    };
+    fetchData();
   }, []);
+
   return (
     <div className="App">
       <div className="content-container">
         <h1>Random Quotes</h1>
-        <Quote index={index} quote={quote} />
-        <Button index={index} setIndex={setIndex} />
+        <Quote quoteData={quoteData} index={index} />
+        <Button index={index} setIndex={setIndex} count={50} />
       </div>
     </div>
   );

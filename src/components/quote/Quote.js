@@ -1,9 +1,9 @@
 import React, { Fragment } from "react";
 import "./css/quote.css";
 
-const Quote = ({ quote, index }) => (
+const Quote = ({ quoteData, index }) => (
   <Fragment>
-    <p>{quote[index]}</p>
+    {quoteData ? <p>{quoteData[index].text}</p> : <p>Loading...</p>}
   </Fragment>
 );
 

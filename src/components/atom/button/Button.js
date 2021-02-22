@@ -1,7 +1,7 @@
 import React from "react";
 import "./css/button.css";
 
-const Button = ({ index, setIndex }) => {
+const Button = ({ index, setIndex, count }) => {
   function changeQuote(e) {
     if (e.target.value === "prev") {
       setIndex(() => {
@@ -14,7 +14,14 @@ const Button = ({ index, setIndex }) => {
       });
       console.log(index);
     } else if (e.target.value === "next") {
-      setIndex(++index);
+      setIndex(() => {
+        if (index >= count) {
+          index = count--;
+          return index;
+        } else {
+          return index++;
+        }
+      });
       console.log(index);
     }
   }

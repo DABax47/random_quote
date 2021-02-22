@@ -9,10 +9,11 @@ function App() {
   const count = 50;
   useEffect(() => {
     const fetchData = async () => {
-      const d = await axios(
-        `"https://goquotes-api.herokuapp.com/api/v1/random?count=${count}`
+      const data = await axios(
+        `https://goquotes-api.herokuapp.com/api/v1/random?count=${count}`
       );
-      setQuote(d.data.quotes);
+
+      setQuote(data.data.quotes);
     };
     fetchData();
   }, []);

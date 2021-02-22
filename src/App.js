@@ -23,7 +23,7 @@ function App() {
       <div className="content-container">
         <h1>Random Quotes</h1>
         <Quote quoteData={quoteData} index={index} />
-        <Button index={index} setIndex={setIndex} count={50} />
+        <Button index={index} setIndex={setIndex} count={count} />
       </div>
     </div>
   );
